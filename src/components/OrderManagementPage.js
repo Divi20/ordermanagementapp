@@ -16,7 +16,7 @@ export default function OrderManagementPage(){
     }, [])
 
     const resetFn = () =>{
-       dispatch(resetList(originalList));
+       dispatch(resetList({originalList : originalList}));
         setSearchInput('');
         getPaginationValues();
     }
@@ -34,13 +34,13 @@ export default function OrderManagementPage(){
 
     const getPaginatedValueBasedonEntries = (e) =>{
         setNoOfEntries(() => e.target.value);
-        dispatch(limitList(orderList, e.target.value, originalList));
+        dispatch(limitList({noOfEntries: e.target.value, originallits : originalList}));
         getPaginationValues()
     }
 
     const handleSearchInput = (e) =>{
         setSearchInput(e.target.value)
-        dispatch(filterList(orderList, e.target.value, originalList))
+        dispatch(filterList({searchInput : e.target.value, originalList : originalList}))
     }
   
     return (
@@ -60,7 +60,7 @@ export default function OrderManagementPage(){
             
             <button
             aria-label="Decrement value"
-            onClick={() => dispatch(filterList(orderList, searchInput ,originalList))}
+            onClick={() => dispatch(filterList({ searchInput : searchInput , orderList : orderList, }))}
             type='button'
             className='btn btn-primary mx-2'
           >
@@ -107,24 +107,25 @@ export default function OrderManagementPage(){
           <option value={15}>15</option>
           </select>
           </div>
-           <div style={{    marginLeft: "auto"}}>
+           <div style={{ marginLeft: "auto"}}>
 
-           {noOfPages && noOfPages.map((num)=>{
-            return <span onClick={() => dispatch(getPageData(orderList, num, noOfEntries, originalList))} className='mx-1'>{num}</span>
-        })}
         <button
         aria-label="Decrement value"
-        onClick={() => dispatch(prev(orderList, noOfEntries, originalList))}
+        onClick={() => dispatch(prev({noOfEntries : noOfEntries, originalList : originalList}))}
         type='button'
-        className='btn btn-primary mx-2'
+        className='btn btn-primary mx-2 btn-sm'
       >
-        Prev
+  Prev
       </button>
+
+      {noOfPages && noOfPages.map((num)=>{
+        return <span onClick={() => dispatch(getPageData({num : num, noOfEntries :noOfEntries, originalList : originalList}))} className='mx-1' style={{width : '50px', height : '50px', borderRadius : '2%', backgroundColor : "#eee", padding:"2%"}}>{num}</span>
+    })}
         <button
         type='button'
-        className='btn btn-primary mx-2'
+        className='btn btn-primary mx-2 btn-sm'
           aria-label="Decrement value"
-          onClick={() => dispatch(limitList(orderList, noOfEntries, originalList))}
+          onClick={() => dispatch(limitList({orderList : orderList, noOfEntries : noOfEntries, originalList : orderList}))}
         >
           Next
         </button>

@@ -34,29 +34,28 @@ export const orderListStore = createSlice({
                           name : "shirt"
                           }
       ],
+      origList : []
     },
     reducers: {
-      filterList: (state) => {
-        state.value= [
-          {id : 3,
-          name : "shirt"
-          },
-          {id : 4,
-            name : "shirt"
-            }
-        ]
+      filterList: (state, action) => {
+        let origValue = state.value;
+        console.log(state.value)
+        state.value= origValue.filter((obj)=> obj.id == action.payload.searchInput || obj.name == action.payload.searchInput)
       },
-      getPageData: (state, num, numberOfEntries, originalList) => {      
+      getPageData: (state, action) => {     
+        let {num, numberOfEntries, originalList} = action.payload 
         if(num > 0 && num < originalList.length){
           state.value = originalList.slice(0, (num * numberOfEntries) + 1 )
         }     
       },
-      limitList: (state, numberOfEntries, originalList) => {      
+      limitList: (state, action) => {      
+        let {numberOfEntries, originalList} = action.payload;
         if(numberOfEntries > 0 && numberOfEntries < originalList.length){
           state.value = originalList.slice(0, numberOfEntries + 1 )
         }     
       },
-      prev: (state, numberOfEntries, originalList) => {
+      prev: (state, action) => {
+        let {numberOfEntries, originalList} = action.payload
         let from = state.value[0].id;
         let to = state.value[state.value.length - 1].id;
         let newfrom = from - numberOfEntries; 
@@ -67,7 +66,8 @@ export const orderListStore = createSlice({
         
       },
 
-      next: (state, numberOfEntries, originalList) => {
+      next: (state, action) => {
+        let {numberOfEntries, originalList} = action.payload
         let from = state.value[0].id;
         let to = state.value[state.value.length - 1].id;
         let newfrom = from + numberOfEntries; 
