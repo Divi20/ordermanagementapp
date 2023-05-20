@@ -13,7 +13,7 @@ export default function Headers() {
     Order Management Tool
     </div>
       <div className="user-div">
-        <img src="" className="img-style" />
+        <div src="" className="img-style" />
         <div className="dropdown">
         <span className="user-text">Oliver John</span>
         <div className="dropdown-content">

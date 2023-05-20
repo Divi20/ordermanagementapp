@@ -1,6 +1,6 @@
 .header-parent{
     position: sticky;
-    background-color: aquamarine;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(92,9,121,0.9514399509803921) 7%, rgba(0,166,255,1) 100%);
     display: flex;
     padding: 8px 22px;
     flex-direction: row;
@@ -24,7 +24,8 @@
 }
 
 .user-text{
-    font-weight: 400;
+    font-weight: 600;
+    color : #000
 }
 
 
@@ -61,8 +62,9 @@
   .dropdown:hover .dropbtn {background-color: #3e8e41;}
 
   .heading-style{
-    font-size: 25px;
+    font-size: 28px;
     font-weight: 600;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color : #fff
 
   }

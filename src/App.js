@@ -5,9 +5,12 @@ import OrderManagementPage from './components/OrderManagementPage';
 import Login from './components/Login';
 import { useEffect, useState } from 'react';
 import { AppRoutes } from './AppRoutes';
+import {useHistory} from 'react-router-dom'
 
 function App() {
   const [showHeader, setShowHeader]= useState(false);
+
+  const history = useHistory();
 
   useEffect(()=>{
    let username  =  localStorage.getItem('username');
@@ -22,7 +25,7 @@ function App() {
   return (
     
     <div>
-   {showHeader &&  <Header></Header>}
+   { !history.location.pathname.includes('/login') && <Header></Header>}
   <AppRoutes></AppRoutes>
     </div>
   );
