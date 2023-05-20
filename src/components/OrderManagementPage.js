@@ -1,8 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import {
   filterList,
-  prev,
-  next,
   getPageData,
   resetList,
 } from "../orderListState/orderListStore";
@@ -12,13 +10,13 @@ export default function OrderManagementPage() {
   const orderListFiltered = useSelector((state) => state.orderList.value);
   const dispatch = useDispatch();
   const [noOfPages, setNoOfPage] = useState([]);
-  const [noOfEntries, setNoOfEntries] = useState(5);
+  const [noOfEntries, setNoOfEntries] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchInput, setSearchInput] = useState("");
 
   useEffect(() => {
-    getPaginatedValueBasedonEntries(5, 1);
-  }, []);
+    getPaginatedValueBasedonEntries(10, 1);
+  },[]);
 
   const resetFn = () => {
     dispatch(resetList());
@@ -62,7 +60,7 @@ export default function OrderManagementPage() {
   };
 
   const handleCurrentPage = (action) => {
-    if (action == "pre") {
+    if (action === "pre") {
       setCurrentPage(parseInt(currentPage) - 1);
       getPaginatedValueBasedonEntries(
         parseInt(noOfEntries),
@@ -70,7 +68,7 @@ export default function OrderManagementPage() {
       );
     }
 
-    if (action == "next") {
+    if (action === "next") {
       setCurrentPage(parseInt(currentPage) + 1);
 
       getPaginatedValueBasedonEntries(
@@ -172,7 +170,7 @@ export default function OrderManagementPage() {
                       height: "50px",
                       borderRadius: "2%",
                       backgroundColor:
-                        currentPage == num ? "#0d6efd" : "#6e6e6e",
+                        currentPage === num ? "#0d6efd" : "#6e6e6e",
                       padding: "2% 8%",
                     }}
                   >

@@ -4,67 +4,67 @@
       "orderId": "1",
       "vendorName": "John",
       "pickupDate": "2023-05-10",
-      "status": "complete"
+      "status": "Shipped"
     },
     {
       "orderId": "2",
       "vendorName": "John",
       "pickupDate": "2023-05-10",
-      "status": "pending"
+      "status": "Pending"
     },
     {
       "orderId": "3",
       "vendorName": "John",
       "pickupDate": "2023-05-10",
-      "status": "complete"
+      "status": "Shipped"
     },
     {
       "orderId": "4",
       "vendorName": "Ram",
       "pickupDate": "2023-05-10",
-      "status": "pending"
+      "status": "Pending"
     },
     {
       "orderId": "5",
       "vendorName": "John",
       "pickupDate": "2023-05-10",
-      "status": "complete"
+      "status": "Shipped"
     },
     {
       "orderId": "6",
       "vendorName": "John",
       "pickupDate": "2023-05-10",
-      "status": "complete"
+      "status": "Shipped"
     },
     {
       "orderId": "7",
       "vendorName": "John",
       "pickupDate": "2023-05-10",
-      "status": "complete"
+      "status": "Shipped"
     },
     {
       "orderId": "8",
       "vendorName": "John",
       "pickupDate": "2023-05-10",
-      "status": "complete"
+      "status": "Cancelled"
     },
     {
       "orderId": "9",
       "vendorName": "John",
       "pickupDate": "2023-05-12",
-      "status": "complete"
+      "status": "Cancelled"
     },
     {
       "orderId": "10",
       "vendorName": "Vijay",
       "pickupDate": "2023-05-10",
-      "status": "complete"
+      "status": "Shipped"
     },
     {
       "orderId": "11",
       "vendorName": "Alex",
       "pickupDate": "2023-05-11",
-      "status": "complete"
+      "status": "Shipped"
     }
   ]
 }

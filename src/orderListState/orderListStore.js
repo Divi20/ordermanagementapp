@@ -14,7 +14,7 @@ export const orderListStore = createSlice({
         let origValue = [...state.origList];
         let filteredList = origValue.filter((obj)=> obj.orderId.includes(action.payload.searchInput) || obj.vendorName.includes(action.payload.searchInput) || obj.pickupDate.includes(action.payload.searchInput) || obj.status.includes(action.payload.searchInput));
         
-        let newOrderList  = filteredList.slice(0, 5);
+        let newOrderList  = filteredList.slice(0, 10);
         
         return {
           ...state,
@@ -31,7 +31,7 @@ export const orderListStore = createSlice({
    
       resetList:(state) =>{
         let origValue = [...state.origList];
-        let newOrderList  = origValue.slice(0,5);  
+        let newOrderList  = origValue.slice(0,10);  
         return {
           ...state,
          value : [...origValue],
@@ -43,6 +43,6 @@ export const orderListStore = createSlice({
   })
   
   // Action creators are generated for each case reducer function
-  export const { filterList, prev, next, getPageData, resetList} = orderListStore.actions
+  export const { filterList, getPageData, resetList} = orderListStore.actions
   
   export default orderListStore.reducer
